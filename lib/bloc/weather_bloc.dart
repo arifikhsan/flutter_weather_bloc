@@ -26,14 +26,14 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
         final weather = await repository.fetchWeather(event.cityName);
         yield WeatherLoaded(weather);
       } on NetworkError {
-        yield WeatherError('Cloudn\'t fetch weater. is the devide online?');
+        yield WeatherError("Couldn't fetch weather. Is the device online?");
       }
     } else if (event is GetDetailWeather) {
       try {
         final weather = await repository.fetchWeatherDetail(event.cityName);
         yield WeatherLoaded(weather);
       } on NetworkError {
-        yield WeatherError('Cloudn\'t fetch weater. is the devide online?');
+        yield WeatherError("Couldn't fetch weather. Is the device online?");
       }
     }
   }

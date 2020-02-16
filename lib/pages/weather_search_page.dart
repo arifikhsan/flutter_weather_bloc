@@ -93,8 +93,8 @@ class CityInputField extends StatelessWidget {
       child: TextField(
         textInputAction: TextInputAction.search,
         onSubmitted: (value) {
-          // context.bloc().add(GetWeather(value));
-          return submitCityName(context, value);
+          context.bloc().add(GetWeather(value));
+          // return submitCityName(context, value);
         },
         decoration: InputDecoration(
           hintText: 'Enter a city',
@@ -105,10 +105,5 @@ class CityInputField extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  void submitCityName(BuildContext context, String cityName) {
-    final weatherBloc = BlocProvider.of<WeatherBloc>(context);
-    weatherBloc.add(GetWeather(cityName));
   }
 }
